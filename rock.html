@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <script>
+           play()
+          function play(){
+            alert("Do you want to play a single or five round Rock paper scissors With Me");
+            let i=prompt("single/five round");
+            if (i[0]=="s"){
+              return declareWinner();
+            }
+
+            else if (i[0]=="f") {
+              return game();
+
+            }
+
+            alert("Type Single or Five round");
+
+          }
+
+
+          function computerPlay(){
+            let values=["ROCK","SCCISSOR","PAPPER"];
+            let index=(Math.floor(Math.random()*3));
+            return values[index];
+
+          }
+
+          function enter(){
+            let hi=prompt("It is Your turn");
+            let choice=hi.toUpperCase();
+            return choice;
+          }
+
+          function compare(player,computer){
+            player=enter();
+            computer=computerPlay();
+            let r=" ";
+
+
+            if(player!="ROCK" && player!="SCISSOR" && player!="PAPPER"){
+              alert("Enter only: Rock or Scisor Or Papper")
+              return player=enter();
+            }
+
+            else if(player===computer){
+              r="No winner ";
+            }
+            else if (enter=="ROCK" && computer=="PAPPER") {
+              r="You Lose! Paper beats Rock";
+
+            }
+            else if (enter=="PAPPER" && computer=="SCISSOR") {
+              r="You Lose! Scissor beats Papper";
+
+            }
+
+            else if (enter=="SCISSOR" && computer=="ROCK"){
+              r="You lose! Rock beats Scissor";
+            }
+
+            else{
+              r=`You Won! ${player} beats ${computer}`;
+            }
+            return r;
+          }
+
+          function declareWinner(){
+            h=compare();
+            alert(h);
+
+          }
+
+          function game(){
+            let p=[];
+            for(i=1;i<=5;i++){
+             p.push(compare());
+
+            }
+
+            alert(p)
+
+          }
+        </script>
+    </head>
+    <body>
+        Rock Scissor Papper Game
+    </body>
+</html>
